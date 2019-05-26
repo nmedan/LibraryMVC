@@ -1,0 +1,17 @@
+﻿@model MyLibrary.Models.Genre
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Genre: @Model.Name</h2>
+
+<div>
+    <p><b>Name</b> @Model.Name</p>
+    <h4>Books</h4>
+    @foreach (var item in Model.Books)
+    {
+        <ul>
+            <li>@Html.ActionLink(@item.Title, "Details", new { controller = "Books", id = @item.Id })</li>
+        </ul>
+    }
+</div>

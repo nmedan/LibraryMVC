@@ -1,0 +1,18 @@
+﻿@model MyLibrary.Models.Author
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Author: @Model.FullName</h2>
+
+<div>
+    <p><b>First Name</b> @Model.FirstName</p>
+    <p><b>Last Name</b> @Model.LastName</p>
+    <h4>Books</h4>
+    @foreach (var item in Model.Books)
+    {
+        <ul>
+            <li>@Html.ActionLink(@item.Title, "Details", new {controller = "Books", id = @item.Id})</li>
+        </ul>
+    }
+</div>

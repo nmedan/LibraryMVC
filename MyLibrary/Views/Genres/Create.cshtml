@@ -1,0 +1,26 @@
+﻿@model MyLibrary.Models.Genre
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add new genre</h2>
+
+
+<div>
+    @using (Html.BeginForm("Create", "Genres", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Enter name" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Save" />
+
+        <button class="btn btn-default">
+            @Html.ActionLink("Cancel", "Index")
+        </button>
+
+    }
+</div>

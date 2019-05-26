@@ -1,0 +1,31 @@
+﻿@model MyLibrary.Models.Author
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit author: @Model.FullName</h2>
+
+<div>
+    @using (Html.BeginForm("Edit", "Authors", FormMethod.Post))
+    {
+        @Html.HiddenFor(model=>model.Id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName)
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "Enter first name" })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName)
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = "Enter last name" })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Save" />
+
+        <button class="btn btn-warning">
+            @Html.ActionLink("Cancel", "Index", "", new { @class = "link" })
+        </button>
+
+    }
+</div>
